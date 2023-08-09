@@ -30,5 +30,4 @@ ORDER BY company_name;
 -- 4. уникальные названия продуктов, которых заказано ровно 10 единиц (количество заказанных единиц см в колонке quantity табл order_details)
 -- Этот запрос написать именно с использованием подзапроса.
 SELECT product_name DISTINCT FROM products
-WHERE EXISTS (SELECT * FROM order_details WHERE products.product_id = order_details.product_id
-			  AND quantity = 10)
+WHERE EXISTS (SELECT * FROM order_details WHERE products.product_id = order_details.product_id AND quantity = 10)
