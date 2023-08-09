@@ -31,3 +31,9 @@ ORDER BY company_name;
 -- Этот запрос написать именно с использованием подзапроса.
 SELECT product_name DISTINCT FROM products
 WHERE EXISTS (SELECT * FROM order_details WHERE products.product_id = order_details.product_id AND quantity = 10)
+-- или
+SELECT product_name DISTINCT FROM products
+WHERE product_id = ANY (SELECT product_id FROM order_details WHERE  quantity = 10)
+-- или
+SELECT product_name DISTINCT FROM products
+WHERE product_id = ANY (SELECT product_id FROM order_details WHERE  quantity = 10)
